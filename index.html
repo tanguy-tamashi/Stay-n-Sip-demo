@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-      <script type="module">
-    import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+     <script src="https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"></script>
+<script>
     Chatbot.init({
         chatflowid: "7c938440-0497-4fbf-abf6-acd20429ad3e",
         apiHost: "https://flowiseai-railway-production-7641.up.railway.app",
@@ -20,36 +20,37 @@
                 backgroundColor: "#3B81F6",
                 right: 20,
                 bottom: 20,
-                size: 48, // small | medium | large | number
+                size: 48,
                 dragAndDrop: true,
                 iconColor: "white",
                 customIconSrc: "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg",
                 autoWindowOpen: {
-                    autoOpen: true, //parameter to control automatic window opening
-                    autoOpenOnMobile: true, //parameter to control automatic window opening in mobile
-                    },
+                    autoOpen: true,
+                    openDelay: 2,
+                    autoOpenOnMobile: false,
+                },
             },
             tooltip: {
                 showTooltip: true,
-                tooltipMessage: 'Hi There 🍷 !',
+                tooltipMessage: 'Hi There 👋!',
                 tooltipBackgroundColor: 'black',
                 tooltipTextColor: 'white',
                 tooltipFontSize: 16,
             },
             chatWindow: {
                 showTitle: true,
-                title: 'Stay'n sip ',
+                title: 'Flowise Bot',
                 titleAvatarSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
-                showAgentMessages: false,
-                welcomeMessage: 'Hello! I'm here to help you booking an experience with us',
-                errorMessage: 'Oops I dont understand',
+                showAgentMessages: true,
+                welcomeMessage: 'Hello! This is custom welcome message',
+                errorMessage: 'This is a custom error message',
                 backgroundColor: "#ffffff",
+                backgroundImage: 'enter image path or link',
                 height: 700,
                 width: 400,
                 fontSize: 16,
-                //starterPrompts: ['What is a bot?', 'Who are you?'], // It overrides the starter prompts set by the chat flow passed
                 starterPromptFontSize: 15,
-                clearChatOnReload: false, // If set to true, the chat will be cleared when the page reloads.
+                clearChatOnReload: false,
                 botMessage: {
                     backgroundColor: "#f7f8ff",
                     textColor: "#303235",
@@ -67,10 +68,11 @@
                     backgroundColor: '#ffffff',
                     textColor: '#303235',
                     sendButtonColor: '#3B81F6',
+                    maxChars: 50,
+                    maxCharsWarningMessage: 'You exceeded the characters limit. Please input less than 50 characters.',
+                    autoFocus: true,
                     sendMessageSound: true,
-                    // sendSoundLocation: "send_message.mp3", // If this is not used, the default sound effect will be played if sendSoundMessage is true.
                     receiveMessageSound: true,
-                    // receiveSoundLocation: "receive_message.mp3", // If this is not used, the default sound effect will be played if receiveSoundMessage is true. 
                 },
                 feedback: {
                     color: '#303235',
@@ -78,13 +80,14 @@
                 footer: {
                     textColor: '#303235',
                     text: 'Powered by',
-                    company: 'Stay'n Sip',
-                    companyLink: 'https://staynsip.com.au/?srsltid=AfmBOoovJIxrA3OfIwPJQl5BROxRpefJReITEjDEn9DU17_Ot-7y__Xm',
+                    company: 'Flowise',
+                    companyLink: 'https://flowiseai.com',
                 }
             }
         }
-    })
+    });
 </script>
+
     <header class="header">
         <div class="container">
             <h1>Stay'n Sip</h1>
