@@ -11,16 +11,29 @@
     <script type="module">
     import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
 
-        function typeMessage(element, message, delay = 50) {
+        // Function to display text progressively (typing effect)
+    function typeText(element, text, speed = 50) {
         let index = 0;
+        element.innerHTML = ""; // Clear previous content
+
         function type() {
-            if (index < message.length) {
-                element.innerHTML += message.charAt(index);
+            if (index < text.length) {
+                element.innerHTML += text.charAt(index);
                 index++;
-                setTimeout(type, delay);
+                setTimeout(type, speed);
             }
         }
         type();
+    }
+
+    // Override the function responsible for rendering bot messages
+    function renderBotMessage(message) {
+        const messageElement = document.createElement("div");
+        messageElement.className = "bot-message";
+        document.querySelector(".chat-window").appendChild(messageElement);
+
+        // Call the typing effect function
+        typeText(messageElement, message, 50); // 50ms delay between characters
     }
     Chatbot.init({
         chatflowid: "fcd0cb40-fb62-4783-b4f4-d4537fd0a624",
