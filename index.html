@@ -10,6 +10,18 @@
 
     <script type="module">
     import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+
+        function typeMessage(element, message, delay = 50) {
+        let index = 0;
+        function type() {
+            if (index < message.length) {
+                element.innerHTML += message.charAt(index);
+                index++;
+                setTimeout(type, delay);
+            }
+        }
+        type();
+    }
     Chatbot.init({
         chatflowid: "fcd0cb40-fb62-4783-b4f4-d4537fd0a624",
         apiHost: "https://flowiseai-railway-production-7641.up.railway.app",
